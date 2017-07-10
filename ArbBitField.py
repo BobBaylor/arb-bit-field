@@ -4,14 +4,14 @@
     ArbBitField implements a class for handling bitfields as text.
     Say you have a serial hardware device with dozens, or hundreds of individual
     bitfields of various widths, each controlling or indicating some function of the hardware.
-    A JTAG interface to a JESD-204 DAC, for example. Manipulating all those
+    A JTAG interface to a JESD-204B DAC, for example. Manipulating all those
     bitfields can be quite error-prone since they might only randomly line up
     on nibble (4 bit) boundaries. ArbBitField provides
-        Easy ways to define, modify, and display the fields.
-        set_bool and get_bool methods to easily read from and write to the hardware.
+        Methods to define, modify, and display the fields.
+        Methods to easily read from and write to the hardware: set_bool and get_bool .
         Options to reverse the bits within a field and/or the fields in the sequence
             during input and output.
-    Key to the ArbBitField class is the format string. The format string defines
+    The key to the ArbBitField class is the format string. The format string defines
     the widths of the individual bit fields.
     Example using 4 fields, each 3 bits wide:
         >>> foo = ArbBitField.ArbBitField('3333')
@@ -20,7 +20,7 @@
         >>> str(foo)
         '000 000 000 000'
         >>> foo[1:3] = '35'
-        str(foo)
+        >>> str(foo)
         '000 011 101 000'
         >>> foo.bool()
         [False, False, False, False, True, True, True, False, True, False, False, False]
@@ -29,10 +29,10 @@
         ArbBitField('4444','2222')
         >>> foo.value
         '2222'
-    Fields can be different and any width from 1 to 36 bits wide.
+    Fields can be any cobination from 1 to 5 bits wide.
     Zero width makes no sense, so is illegal.
     Though widths of 5 are legal, it's usually easier to read in 4 bit nibbles,
-        e.g. if you specify a 5 bit width as '24' and set it to all 1s, it reads '1F'.
+        e.g. if you specify a 5 bit thing as '14' and set it to all 1s, it reads '1F'.
         if you specify the width as '5', then all 1s reads 'V' which is (31-10)
         characters after 'A' - not so useful.
 """
