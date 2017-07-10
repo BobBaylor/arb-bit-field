@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+
+# dotenv
+.env
+
+# virtualenv
+.venv
+venv/
+ENV/
+
