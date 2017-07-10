@@ -1,6 +1,13 @@
 # Byte-compiled / optimized / DLL files
 *.py[cod]
 
+# files in the larger project
+*.bat
+*.pdf
+eye.py
+eye_get.py
+jtag.py
+
 # dotenv
 .env
 
